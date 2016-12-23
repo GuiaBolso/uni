@@ -19,25 +19,32 @@ Input on a component is given by a
 
 It's the protocol a component must use to communicate with its container
 
-Example: `guiabolso://`
+`http://path/to/my/view?protocol=guiabolso%3A%2F%2F`
 
 The protocol is going to be prepended on the component's callback URI
 
-### callback params 
+### `callback`
 
-`A lower-camel-case word starting with 'on'`
+A lower-camel-case word starting with 'on' defined by the following RegExp:
 
-If a param starts with `on` then it's assumed it is a event handler.
+`on[A-Z][a-z]([A-Z][a-z]+)*`
 
-Example: `onSubmit`
+Example: `onSubmit`, `on
 
 `http://path/to/my/view?param1=value1&param2=value&onChangeCallback=changeHandler&protocol=guiabolso%3A%2F%2F`
 
-### arbitrary params
+### `arbitrary`
+
+Any arbitrary param a component can define as input, defined by the following RegExp:
+
+`[a-z]([A-Z][a-z]+)*`
 
 # State
 `#some-state`
 
 ## Output
+All the Output is made via `fetch` to a callback URI, wich is defined by:
 
-`guiabolso://changeHandler?value=value1`
+`<callbackURI> ::= <protocol><callback>[?{<arbitrary>=<value>}&]`
+
+`guiabolso://changeHandler?value1=val1&value2=val2`
