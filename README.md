@@ -5,7 +5,7 @@ A communication protocol for self-contained, platform-agnostic webviews
 
 # SPECS
 
-## container
+## Container
 
 ## Component
 
@@ -29,9 +29,11 @@ A lower-camel-case word starting with 'on' defined by the following RegExp:
 
 `on[A-Z][a-z]([A-Z][a-z]+)*`
 
-Example: `onSubmit`, `on
+Example: `onSubmit`
 
-`http://path/to/my/view?param1=value1&param2=value&onChangeCallback=changeHandler&protocol=guiabolso%3A%2F%2F`
+Usage Example:
+
+`http://path/to/my/view?protocol=guiabolso%3A%2F%2F&onSubmit=submitHandler`
 
 ### `arbitrary`
 
@@ -47,4 +49,4 @@ All the Output is made via `fetch` to a callback URI, wich is defined by:
 
 `<callbackURI> ::= <protocol><callback>[?{<arbitrary>=<value>}&]`
 
-`guiabolso://changeHandler?value1=val1&value2=val2`
+`guiabolso://submitHandler?username=val1&password=val2`
